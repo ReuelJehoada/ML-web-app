@@ -32,10 +32,6 @@ heart_disease_model = load_model("heart_disease_model.sav")
 parkinsons_model = load_model("parkinsons_model.sav")
 
 # Now you can use these models inside your Streamlit app
-
-
-#breastcancer_model=pickle.load(open("C:/Users/reuel/OneDrive/Desktop/Multiple disease Prediction System/saved models/breastcancer_model.sav","rb"))
-
 #sidebar for navigation
 
 with st.sidebar:
