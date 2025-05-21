@@ -5,16 +5,34 @@ Created on Tue May 20 22:31:33 2025
 @author: reuel
 """
 
+import os
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-#loading the saved models
-diabetes_model=pickle.load(open('diabetes_model.sav','rb'))
+# Get the absolute path to the current directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-heart_disease_model=pickle.load(open("heart_disease_model.sav","rb"))
+# Helper function to load models
+def load_model(filename):
+    filepath = os.path.join(BASE_DIR, filename)
+    try:
+        with open(filepath, 'rb') as file:
+            return pickle.load(file)
+    except FileNotFoundError:
+        st.error(f"Model file not found: {filename}")
+        return None
+    except Exception as e:
+        st.error(f"Error loading model {filename}: {str(e)}")
+        return None
 
-parkinsons_model=pickle.load(open("parkinsons_model.sav","rb"))
+# Load all models
+diabetes_model = load_model("diabetes_model.sav")
+heart_disease_model = load_model("heart_disease_model.sav")
+parkinsons_model = load_model("parkinsons_model.sav")
+
+# Now you can use these models inside your Streamlit app
+
 
 #breastcancer_model=pickle.load(open("C:/Users/reuel/OneDrive/Desktop/Multiple disease Prediction System/saved models/breastcancer_model.sav","rb"))
 
