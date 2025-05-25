@@ -47,13 +47,21 @@ with st.sidebar:
                          default_index = 0)
     # Add watermark text at the bottom inside sidebar
     st.markdown(
-        """
-        <div style="position: fixed; bottom: 10px; left: 10px; opacity: 0.15; font-size: 12px; color: gray;">
-            Made BY Reuel Jehoada
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+       """
+       <div style="
+           position: fixed; 
+           bottom: 10px; 
+           left: 10px; 
+           opacity: 0.8;       /* Higher opacity = more visible */
+           font-size: 12px; 
+           color: white;       /* White text */
+           font-weight: bold;  /* Optional: make it bold */
+           ">
+           Made By Reuel Jehoada
+       </div>
+       """,
+       unsafe_allow_html=True
+   )
 
 
 #Diabetes prediction Page
